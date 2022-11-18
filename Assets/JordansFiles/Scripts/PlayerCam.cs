@@ -12,6 +12,10 @@ public class PlayerCam : MonoBehaviour
     float xRotation;
     float yRotation;
 
+    [Header("Keybinds")]
+    public string horizontalLooking = "Mouse X";
+    public string verticalLooking = "Mouse Y";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +28,8 @@ public class PlayerCam : MonoBehaviour
     void Update()
     {
         //Get mouse input
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+        float mouseX = Input.GetAxisRaw(horizontalLooking) * Time.deltaTime * sensX;
+        float mouseY = Input.GetAxisRaw(verticalLooking) * Time.deltaTime * sensY;
         yRotation += mouseX;
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);

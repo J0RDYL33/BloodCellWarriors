@@ -20,8 +20,10 @@ public class PlayerMovement : MonoBehaviour
     bool readyToJump = true;
 
     [Header("Keybinds")]
-    public KeyCode jumpKey = KeyCode.Space;
-    public KeyCode sprintKey = KeyCode.LeftShift;
+    public string horizontalMovement = "Horizontal";
+    public string verticalMovement = "Vertical";
+    public string jumpKey = "Jump";
+    public string sprintKey = "Sprint";
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -86,11 +88,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void MyInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        horizontalInput = Input.GetAxisRaw(horizontalMovement);
+        verticalInput = Input.GetAxisRaw(verticalMovement);
 
         //When to jump
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
+        if(Input.GetButtonDown(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
 
@@ -116,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Mode - Sprinting
-        else if(grounded && Input.GetKey(sprintKey))
+        else if(grounded && Input.GetButton(sprintKey))
         {
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;

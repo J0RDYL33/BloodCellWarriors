@@ -20,7 +20,7 @@ public class Dashing : MonoBehaviour
     private float dashCdTimer;
 
     [Header("Input")]
-    public KeyCode dashKey = KeyCode.E;
+    public string dashKey = "Dash";
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,7 @@ public class Dashing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(dashKey))
+        if (Input.GetButtonDown(dashKey))
             Dash();
 
         if (dashCdTimer > 0)
