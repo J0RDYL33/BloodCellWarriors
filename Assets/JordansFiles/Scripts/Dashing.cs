@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dashing : MonoBehaviour
 {
-    [Header("References")]
+    [Header("References to self")]
     public Transform orientation;
     public Transform playerCam;
     private Rigidbody rb;
@@ -22,11 +22,17 @@ public class Dashing : MonoBehaviour
     [Header("Input")]
     public string dashKey = "Dash";
 
+    [Header("Other Objects")]
+    private HeartBehaviour theHeart;
+    private TempoObjSpawner doStuffChecker;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<PlayerMovement>();
+        theHeart = FindObjectOfType<HeartBehaviour>();
+        doStuffChecker = FindObjectOfType<TempoObjSpawner>();
     }
 
     // Update is called once per frame
@@ -44,14 +50,21 @@ public class Dashing : MonoBehaviour
         if (dashCdTimer > 0) return;
         else dashCdTimer = dashCd;
 
-        pm.dashing = true;
+        if (doStuffChecker.doStuff == true)
+        {
+            pm.dashing = true;
 
-        Vector3 forceToApply = orientation.forward * dashForce + orientation.up * dashUpwardForce;
+            Vector3 forceToApply = orientation.forward * dashForce + orientation.up * dashUpwardForce;
 
-        delayedForceToApply = forceToApply;
-        Invoke(nameof(DelayedDashForce), 0.025f);
+            delayedForceToApply = forceToApply;
+            Invoke(nameof(DelayedDashForce), 0.025f);
 
-        Invoke(nameof(ResetDash), dashDuration);
+            Invoke(nameof(ResetDash), dashDuration);
+        }
+        else
+        {
+            theHeart.TakeDamage(5);
+        }
     }
 
     private Vector3 delayedForceToApply;

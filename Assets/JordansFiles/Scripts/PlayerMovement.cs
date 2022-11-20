@@ -46,6 +46,10 @@ public class PlayerMovement : MonoBehaviour
 
     public MovementState state;
 
+    [Header("Other Objects")]
+    private TempoObjSpawner doStuffChecker;
+    private HeartBehaviour theHeart;
+
     public enum MovementState
     {
         walking,
@@ -61,7 +65,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-
+        doStuffChecker = FindObjectOfType<TempoObjSpawner>();
+        theHeart = FindObjectOfType<HeartBehaviour>();
     }
 
     // Update is called once per frame
@@ -92,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw(verticalMovement);
 
         //When to jump
-        if(Input.GetButtonDown(jumpKey) && readyToJump && grounded)
+        if(Input.GetButtonDown(jumpKey) && readyToJump && grounded && doStuffChecker.doStuff == true)
         {
             readyToJump = false;
 
@@ -100,6 +105,11 @@ public class PlayerMovement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+        else if(Input.GetButtonDown(jumpKey) && readyToJump && grounded && doStuffChecker.doStuff != true)
+        {
+            theHeart.TakeDamage(5);
+        }
+
     }
 
     private float desiredMoveSpeed;
