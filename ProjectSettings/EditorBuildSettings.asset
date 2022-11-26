@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 44f391e3679230148abe4a2b5e379e88
+  - enabled: 1
     path: Assets/Scenes/GameMap.unity
     guid: 398495234bf50f1439f0ccd13b356969
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/JordansTestingGrounds.unity
     guid: 39a88d167a395fc428a8fc5e48565d62
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LoseScreen.unity
     guid: 5d2760b2eb8301b419672bc1e8de2aa0
   m_configObjects:
