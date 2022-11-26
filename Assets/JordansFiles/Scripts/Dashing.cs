@@ -63,7 +63,8 @@ public class Dashing : MonoBehaviour
         }
         else
         {
-            theHeart.TakeDamage(5);
+            if(pm.dead == false)
+                theHeart.TakeDamage(2);
         }
     }
 

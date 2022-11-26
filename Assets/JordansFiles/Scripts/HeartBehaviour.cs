@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HeartBehaviour : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class HeartBehaviour : MonoBehaviour
     public float pitchToGive;
     public AudioSource musicPlayer;
     public TextMeshProUGUI healthText;
+    public float startInvulTime;
+    public float invulTime;
 
     private float savedHealth = 100;
     private TempoObjSpawner tempoSpawner;
@@ -27,14 +30,30 @@ public class HeartBehaviour : MonoBehaviour
         {
             UpdatePitch();
         }
+    }
 
+    private void Update()
+    {
+        if (invulTime > 0)
+            invulTime -= Time.deltaTime;
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "EnemyBullet" && invulTime <= 0)
+        {
+            invulTime = startInvulTime;
+            TakeDamage(4);
+        }
     }
 
     public void TakeDamage(int damage)
     {
         health -= damage;
         healthText.text = "Health: " + health;
+
+        if (health <= 0)
+            SceneManager.LoadScene(2);
     }
 
     private void UpdatePitch()

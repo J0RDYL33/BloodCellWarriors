@@ -45,6 +45,13 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
 
     public MovementState state;
+    public float startHealth;
+    public float health;
+    public float startInvulTimer;
+    public float invulTimer;
+    public Vector3 respawnPos;
+    public GameObject myDeathCanvas;
+    public bool dead;
 
     [Header("Other Objects")]
     private TempoObjSpawner doStuffChecker;
@@ -67,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
         doStuffChecker = FindObjectOfType<TempoObjSpawner>();
         theHeart = FindObjectOfType<HeartBehaviour>();
+        health = startHealth;
+        myDeathCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -84,11 +93,38 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        if (invulTimer > 0)
+            invulTimer -= Time.deltaTime;
     }
 
     private void FixedUpdate()
     {
         MovePlayer();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "EnemyBullet" && invulTimer <= 0)
+        {
+            health--;
+            invulTimer = startInvulTimer;
+
+            if (health == 0)
+                StartCoroutine(Respawn());
+        }
+    }
+
+    IEnumerator Respawn()
+    {
+        transform.position = new Vector3(1000f, 1000f, 1000f);
+        myDeathCanvas.SetActive(true);
+        dead = true;
+        yield return new WaitForSeconds(3.0f);
+        dead = false;
+        myDeathCanvas.SetActive(false);
+        health = startHealth;
+        transform.position = respawnPos;
     }
 
     private void MyInput()
@@ -105,9 +141,9 @@ public class PlayerMovement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-        else if(Input.GetButtonDown(jumpKey) && readyToJump && grounded && doStuffChecker.doStuff != true)
+        else if(Input.GetButtonDown(jumpKey) && readyToJump && grounded && doStuffChecker.doStuff != true && dead == false)
         {
-            theHeart.TakeDamage(5);
+            theHeart.TakeDamage(2);
         }
 
     }

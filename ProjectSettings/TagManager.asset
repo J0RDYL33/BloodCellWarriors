@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+  - Heart
+  - Enemy
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -39,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: UI
+    uniqueID: 4139686997
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
