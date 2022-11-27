@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,11 +20,16 @@ public class PlayerMovement : MonoBehaviour
     public float airMultiplier;
     bool readyToJump = true;
 
+    public float fireCooldown;
+    public float startfireCooldown = 0.25f;
+    private bool tryDash;
+
     [Header("Keybinds")]
     public string horizontalMovement = "Horizontal";
     public string verticalMovement = "Vertical";
     public string jumpKey = "Jump";
     public string sprintKey = "Sprint";
+    public string fireKey = "Fire1";
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -37,8 +43,10 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform orientation;
 
-    float horizontalInput;
-    float verticalInput;
+    //float horizontalInput;
+    //float verticalInput;
+
+    private Vector2 movementInput;
 
     Vector3 moveDirection;
 
@@ -54,8 +62,12 @@ public class PlayerMovement : MonoBehaviour
     public bool dead;
 
     [Header("Other Objects")]
+    public GameObject myCamera;
+    public Camera camObject;
+    public GameObject bulletPrefab;
     private TempoObjSpawner doStuffChecker;
     private HeartBehaviour theHeart;
+    public CameraCorrect camCorrect;
 
     public enum MovementState
     {
@@ -70,6 +82,14 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Put the camera in the correct position
+        camCorrect = FindObjectOfType<CameraCorrect>();
+        camCorrect.PlayerJoined();
+        if (camCorrect.publicIndex == 1)
+            camObject.rect = new Rect(0, 0.5f, 1, 0.5f);
+        else if (camCorrect.publicIndex == 2)
+            camObject.rect = new Rect(0, 0, 1, 0.5f);
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         doStuffChecker = FindObjectOfType<TempoObjSpawner>();
@@ -96,6 +116,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (invulTimer > 0)
             invulTimer -= Time.deltaTime;
+
+        if (fireCooldown > 0)
+            fireCooldown -= Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -120,6 +143,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position = new Vector3(1000f, 1000f, 1000f);
         myDeathCanvas.SetActive(true);
         dead = true;
+        invulTimer = 5.0f;
         yield return new WaitForSeconds(3.0f);
         dead = false;
         myDeathCanvas.SetActive(false);
@@ -129,11 +153,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void MyInput()
     {
-        horizontalInput = Input.GetAxisRaw(horizontalMovement);
-        verticalInput = Input.GetAxisRaw(verticalMovement);
+        /*horizontalInput = Input.GetAxisRaw(horizontalMovement);
+        verticalInput = Input.GetAxisRaw(verticalMovement);*/
 
         //When to jump
-        if(Input.GetButtonDown(jumpKey) && readyToJump && grounded && doStuffChecker.doStuff == true)
+        /*if(Input.GetButtonDown(jumpKey) && readyToJump && grounded && doStuffChecker.doStuff == true)
         {
             readyToJump = false;
 
@@ -144,8 +168,73 @@ public class PlayerMovement : MonoBehaviour
         else if(Input.GetButtonDown(jumpKey) && readyToJump && grounded && doStuffChecker.doStuff != true && dead == false)
         {
             theHeart.TakeDamage(2);
-        }
+        }*/
 
+        /*//When to fire
+        if(Input.GetButtonDown(fireKey) && fireCooldown <= 0 && doStuffChecker.doStuff == true && dead == false)
+        {
+            SpawnBullet();
+            fireCooldown = startfireCooldown;
+        }
+        else if(Input.GetButtonDown(fireKey) && doStuffChecker.doStuff == false && dead == false)
+        {
+            theHeart.TakeDamage(2);
+        }*/
+    }
+
+    public void FirePressed(InputAction.CallbackContext ctx)
+    {
+        if(ctx.performed)
+        {
+            //When to fire
+            if (fireCooldown <= 0 && doStuffChecker.doStuff == true && dead == false)
+            {
+                SpawnBullet();
+                fireCooldown = startfireCooldown;
+            }
+            else if (doStuffChecker.doStuff == false && dead == false)
+            {
+                theHeart.TakeDamage(2);
+            }
+        }
+    }
+
+    public void JumpPressed(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            if (readyToJump && grounded && doStuffChecker.doStuff == true)
+            {
+                readyToJump = false;
+
+                Jump();
+
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
+            else if (readyToJump && grounded && doStuffChecker.doStuff != true && dead == false)
+            {
+                theHeart.TakeDamage(2);
+            }
+        }
+    }
+
+    public void OnMove(InputAction.CallbackContext ctx) => movementInput = ctx.ReadValue<Vector2>();
+
+    private void SpawnBullet()
+    {
+        Instantiate(bulletPrefab, myCamera.transform.position, myCamera.transform.rotation);
+    }
+
+    public void SetSprint(InputAction.CallbackContext ctx)
+    {
+        if(ctx.performed)
+        {
+            tryDash = true;
+        }
+        else if(ctx.canceled)
+        {
+            tryDash = false;
+        }
     }
 
     private float desiredMoveSpeed;
@@ -164,7 +253,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Mode - Sprinting
-        else if(grounded && Input.GetButton(sprintKey))
+        else if(grounded && tryDash)
         {
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
@@ -237,10 +326,11 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         //Calculate movement direction
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        //moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        moveDirection = orientation.forward * movementInput.y + orientation.right * movementInput.x;
 
         //On slope
-        if(OnSlope() && !exitingSlope)
+        if (OnSlope() && !exitingSlope)
         {
             rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
 

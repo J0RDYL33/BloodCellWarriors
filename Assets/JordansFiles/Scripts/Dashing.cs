@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Dashing : MonoBehaviour
 {
@@ -38,11 +39,16 @@ public class Dashing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown(dashKey))
-            Dash();
+        //if (Input.GetButtonDown(dashKey))
+            //Dash();
 
         if (dashCdTimer > 0)
             dashCdTimer -= Time.deltaTime;
+    }
+
+    public void DoDash(InputAction.CallbackContext ctx)
+    {
+        Dash();
     }
 
     private void Dash()

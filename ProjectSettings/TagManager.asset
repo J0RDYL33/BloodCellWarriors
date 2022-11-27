@@ -8,6 +8,8 @@ TagManager:
   - Heart
   - Enemy
   - EnemyBullet
+  - PlayerBullet
+  - EnemyMain
   layers:
   - Default
   - TransparentFX

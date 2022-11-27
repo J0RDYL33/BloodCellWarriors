@@ -8,16 +8,19 @@ public class EnemyMover : MonoBehaviour
     public bool inRange;
     public GameObject enemyInRange;
     public bool hasEnemyLocked;
+    public int health;
 
     private GameObject heartObject;
     private float index;
     private Vector3 moveTo;
+    private EnemySpawner mySpawner;
     // Start is called before the first frame update
     void Start()
     {
         inRange = false;
         heartObject = FindObjectOfType<HeartBehaviour>().gameObject;
         moveTo = heartObject.transform.position;
+        mySpawner = FindObjectOfType<EnemySpawner>();
     }
 
     // Update is called once per frame
@@ -48,6 +51,20 @@ public class EnemyMover : MonoBehaviour
             Vector3 targetDirection = enemyInRange.gameObject.transform.position - transform.position;
             Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, step / 10f, 0.0f);
             transform.rotation = Quaternion.LookRotation(newDirection);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "PlayerBullet")
+        {
+            health--;
+
+            if(health <= 0)
+            {
+                mySpawner.enemiesLeft--;
+                Destroy(this.gameObject);
+            }
         }
     }
 }
