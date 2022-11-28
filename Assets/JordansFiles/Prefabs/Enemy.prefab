@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1693010496577655205}
   - component: {fileID: 1693010496577655227}
   - component: {fileID: 1693010496577655224}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Large Player Trigger
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,9 +76,9 @@ GameObject:
   - component: {fileID: 1693010497183584780}
   - component: {fileID: 1693010497183584783}
   - component: {fileID: 1693010497183584768}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
-  m_TagString: EnemyMain
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,6 +182,8 @@ MonoBehaviour:
   enemyInRange: {fileID: 0}
   hasEnemyLocked: 0
   health: 3
+  invulTime: 0
+  startInvulTime: 0.25
 --- !u!54 &1693010497183584768
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -323,9 +325,9 @@ GameObject:
   - component: {fileID: 1693010498069569781}
   - component: {fileID: 1693010498069570314}
   - component: {fileID: 1693010498069570315}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Smaller Movement Trigger
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

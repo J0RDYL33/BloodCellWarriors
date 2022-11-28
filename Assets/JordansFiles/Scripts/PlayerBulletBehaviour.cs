@@ -20,7 +20,7 @@ public class PlayerBulletBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Player")
             return;
 
         StartCoroutine(DestroyMyself());

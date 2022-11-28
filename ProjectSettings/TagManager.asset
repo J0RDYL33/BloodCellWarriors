@@ -14,15 +14,15 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerBullet
   - Water
   - UI
-  - 
-  - 
+  - Enemy
+  - LargerEnemy
   - Character
   - Ground
   - WhatIsGround
-  - 
+  - EnemyBullet
   - 
   - 
   - 

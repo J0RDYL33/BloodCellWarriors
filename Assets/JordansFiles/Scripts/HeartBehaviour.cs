@@ -10,6 +10,7 @@ public class HeartBehaviour : MonoBehaviour
     public float savedPitch;
     public float pitchToGive;
     public AudioSource musicPlayer;
+    public AudioSource tempoPlayer;
     public TextMeshProUGUI healthText;
     public float startInvulTime;
     public float invulTime;
@@ -61,11 +62,12 @@ public class HeartBehaviour : MonoBehaviour
         savedHealth = health;
 
         //Health between 100 and 0, pitch between 1 and 1.3
-        savedPitch = Mathf.Lerp(1.2935f, 0.995f, health / 100);
+        savedPitch = Mathf.Lerp(1.3f, 1f, health / 100);
         pitchToGive = Mathf.Lerp(1.3f, 1f, health / 100);
 
         tempoSpawner.ProvideNewTempo(pitchToGive);
 
         musicPlayer.pitch = savedPitch;
+        tempoPlayer.pitch = savedPitch;
     }
 }

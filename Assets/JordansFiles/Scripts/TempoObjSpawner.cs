@@ -10,6 +10,7 @@ public class TempoObjSpawner : MonoBehaviour
     public float tempoCounter;
     public float currentPitch;
     public AudioSource musicPlayer;
+    public AudioSource tempoPlayer;
 
     [Header("Can the player do stuff")]
     public bool doStuff;
@@ -19,6 +20,7 @@ public class TempoObjSpawner : MonoBehaviour
     private bool newPitchIsHere;
     private float pitchToUpdate;
     private bool looping = true;
+    private int tempoCount;
 
     //NOTE: Might need to add code to FixedUpdate to reduce this number the higher the pitch gets
     private float allowStuffTimer = 20;
@@ -46,6 +48,27 @@ public class TempoObjSpawner : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (allowUpdate == true)
+        {
+            if(tempoPlayer.isPlaying == false)
+            {
+                SpawnTempo();
+                tempoPlayer.Play();
+
+                tempoCount++;
+
+                if(tempoCount == 5)
+                {
+                    musicPlayer.Stop();
+                    musicPlayer.Play();
+                    tempoCount = 1;
+                }
+            }
+        }
+    }
+
     private void SpawnTempo()
     {
         //Do over the spawn rate, calculate mistake, add mistake on at the end of the next turn
@@ -70,9 +93,12 @@ public class TempoObjSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         musicPlayer.Play();
+        tempoPlayer.Play();
         allowUpdate = true;
-        yield return new WaitForSeconds(0.25f);
-        StartCoroutine(SpawnOnLoop());
+        tempoCount++;
+        SpawnTempo();
+        //yield return new WaitForSeconds(0.25f);
+        //StartCoroutine(SpawnOnLoop());
     }
 
     IEnumerator SpawnOnLoop()

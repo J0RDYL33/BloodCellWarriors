@@ -9,6 +9,8 @@ public class EnemyMover : MonoBehaviour
     public GameObject enemyInRange;
     public bool hasEnemyLocked;
     public int health;
+    public float invulTime;
+    public float startInvulTime;
 
     private GameObject heartObject;
     private float index;
@@ -52,13 +54,17 @@ public class EnemyMover : MonoBehaviour
             Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, step / 10f, 0.0f);
             transform.rotation = Quaternion.LookRotation(newDirection);
         }
+
+        if (invulTime > 0)
+            invulTime -= Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "PlayerBullet")
+        if(other.gameObject.tag == "PlayerBullet" && invulTime <= 0)
         {
             health--;
+            invulTime = startInvulTime;
 
             if(health <= 0)
             {

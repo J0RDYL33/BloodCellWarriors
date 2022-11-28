@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -68,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
     private TempoObjSpawner doStuffChecker;
     private HeartBehaviour theHeart;
     public CameraCorrect camCorrect;
+    public TextMeshProUGUI playerHealthText;
 
     public enum MovementState
     {
@@ -96,6 +98,8 @@ public class PlayerMovement : MonoBehaviour
         theHeart = FindObjectOfType<HeartBehaviour>();
         health = startHealth;
         myDeathCanvas.SetActive(false);
+
+        playerHealthText.text = "Player Health: " + health;
     }
 
     // Update is called once per frame
@@ -132,6 +136,7 @@ public class PlayerMovement : MonoBehaviour
         {
             health--;
             invulTimer = startInvulTimer;
+            playerHealthText.text = "Player Health: " + health;
 
             if (health == 0)
                 StartCoroutine(Respawn());
@@ -148,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
         dead = false;
         myDeathCanvas.SetActive(false);
         health = startHealth;
+        playerHealthText.text = "Player Health: " + health;
         transform.position = respawnPos;
     }
 
