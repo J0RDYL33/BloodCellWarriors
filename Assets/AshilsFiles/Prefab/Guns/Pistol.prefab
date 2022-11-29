@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6002764400621237115}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: States
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6002764400649806629}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ADS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6002764400649806626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 0.68, z: 0}
+  m_LocalPosition: {x: -1.212, y: 0.7, z: -0.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 6002764400692574688}
   - component: {fileID: 6002764400692574689}
   - component: {fileID: 6002764400692574702}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6002764400833957329}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Resources
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6002764401339487129}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6002764401880454943}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6002764401897727191}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 6002764401983805718}
   - component: {fileID: 6002764401983805719}
   - component: {fileID: 6002764401983805716}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6002764402132734506}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Design
   m_TagString: Untagged
   m_Icon: {fileID: 0}
