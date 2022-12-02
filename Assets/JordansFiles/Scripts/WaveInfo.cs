@@ -8,11 +8,13 @@ public class WaveInfo : MonoBehaviour
     public int numberOfEnemies;
     public int[] spawnLocations;
     public float timeBetweenEnemies;
+    public bool openDoor;
+    public GameObject doorToOpen;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,4 +22,10 @@ public class WaveInfo : MonoBehaviour
     {
         
     }
+
+    public void OpenDoor()
+    {
+        doorToOpen.SetActive(false);
+    }
+
 }

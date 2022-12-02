@@ -76,6 +76,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2908072750511453842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5992641759677339653}
+  m_Layer: 0
+  m_Name: WeaponParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5992641759677339653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2908072750511453842}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.237, y: -0.132, z: 0.674}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8596163666176030816}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3044265067457380448
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +661,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4680529176400786000}
+  - {fileID: 5992641759677339653}
   m_Father: {fileID: 8596163665979785536}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -664,7 +696,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4063
+    m_Bits: 32735
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -779,6 +811,7 @@ GameObject:
   - component: {fileID: 8596163666744711989}
   - component: {fileID: 8596163666744711991}
   - component: {fileID: 2760331121650481473}
+  - component: {fileID: 4969751834650904786}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -992,6 +1025,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4969751834650904786}
+        m_TargetAssemblyTypeName: WeaponPistol, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6b2ac992-c3f0-4375-8c2f-10443be09f53
     m_ActionName: Gameplay/Fire[/Mouse/leftButton,/DualShock4GamepadHID/buttonWest]
   - m_PersistentCalls:
@@ -1026,11 +1071,42 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6dd522b4-16ce-405f-8c35-7c23c9cb5e28
     m_ActionName: Gameplay/Sprint[/DualShock4GamepadHID/leftStickPress,/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4969751834650904786}
+        m_TargetAssemblyTypeName: WeaponPistol, Assembly-CSharp
+        m_MethodName: EnableAimBool
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b3a8850c-2860-4273-ba76-2ec905ee8ca8
+    m_ActionName: Gameplay/AimDownSight[/DualShock4GamepadHID/leftTrigger,/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 8596163666176030815}
+--- !u!114 &4969751834650904786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8596163666744711986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77618b58e31a02b4a8fbcc7dac1f2aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadout:
+  - {fileID: 11400000, guid: 160c3219ff45813478fc2e28d699d0da, type: 2}
+  weaponParent: {fileID: 5992641759677339653}
 --- !u!1 &8868856516143906262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,7 +1118,7 @@ GameObject:
   - component: {fileID: 8868856516143906263}
   - component: {fileID: 8868856516143906261}
   - component: {fileID: 8868856516143906260}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: '"Respawning..."'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1180,7 +1256,7 @@ GameObject:
   - component: {fileID: 8868856516337062075}
   - component: {fileID: 8868856516337062074}
   - component: {fileID: 8868856516337062077}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: Player1DeathScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1282,7 +1358,7 @@ GameObject:
   - component: {fileID: 8868856516635252918}
   - component: {fileID: 8868856516635252916}
   - component: {fileID: 8868856516635252919}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: '"You Died!"'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1417,7 +1493,7 @@ GameObject:
   - component: {fileID: 8868856517619241847}
   - component: {fileID: 8868856517619241845}
   - component: {fileID: 8868856517619241844}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

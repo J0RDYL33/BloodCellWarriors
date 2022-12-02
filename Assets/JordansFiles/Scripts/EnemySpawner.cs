@@ -20,8 +20,11 @@ public class EnemySpawner : MonoBehaviour
         //List all the spawn locations and store them in spawnLocations
         spawnLocations[0] = new Vector3(0, 4, -150);
         spawnLocations[1] = new Vector3(0, 4, 150);
-        spawnLocations[2] = new Vector3(150, 4, 0);
-        spawnLocations[3] = new Vector3(-150, 4, 0);
+        spawnLocations[2] = new Vector3(150, 4, 12);
+        spawnLocations[3] = new Vector3(-150, 4, 12);
+
+        if (arrayOfWaves[currentWave].openDoor)
+            arrayOfWaves[currentWave].OpenDoor();
 
         //Wait 5 seconds before starting first wave
         StartCoroutine(WaveCooldown());
@@ -34,6 +37,10 @@ public class EnemySpawner : MonoBehaviour
         {
             currentWave++;
             enemiesLeft = arrayOfWaves[currentWave].numberOfEnemies;
+
+            if (arrayOfWaves[currentWave].openDoor)
+                arrayOfWaves[currentWave].OpenDoor();
+
             StartCoroutine(WaveCooldown());
         }
     }
