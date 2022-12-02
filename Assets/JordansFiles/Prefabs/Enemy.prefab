@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8db484d7f93f9bc4bb2a525ef8a639e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   inRange: 0
   enemyInRange: {fileID: 0}
   hasEnemyLocked: 0
