@@ -8,6 +8,7 @@ public class BulletBehaviour : MonoBehaviour
     public Vector3 playerPosWhenFired;
     public Vector3 bulletPosWhenFired;
     public float timeTilDespawn;
+    public GameObject bloodParticles;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,10 +38,14 @@ public class BulletBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag != "Enemy")
             StartCoroutine(DestroyMyself());
+
+        if(other.gameObject.tag == "Player" || other.gameObject.tag == "Heart")
+            Instantiate(bloodParticles, this.transform.position, this.transform.rotation);
     }
 
     IEnumerator DestroyMyself()
     {
+        
         yield return new WaitForEndOfFrame();
         Destroy(this.gameObject);
     }

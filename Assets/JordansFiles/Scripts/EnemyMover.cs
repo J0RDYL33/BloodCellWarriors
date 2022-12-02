@@ -16,6 +16,7 @@ public class EnemyMover : MonoBehaviour
     private float index;
     private Vector3 moveTo;
     private EnemySpawner mySpawner;
+    private AudioPlayer myAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class EnemyMover : MonoBehaviour
         heartObject = FindObjectOfType<HeartBehaviour>().gameObject;
         moveTo = heartObject.transform.position;
         mySpawner = FindObjectOfType<EnemySpawner>();
+        myAudio = FindObjectOfType<AudioPlayer>();
     }
 
     // Update is called once per frame
@@ -64,6 +66,7 @@ public class EnemyMover : MonoBehaviour
         if(other.gameObject.tag == "PlayerBullet" && invulTime <= 0)
         {
             health--;
+            myAudio.PlayAudioClip("EnemyHit");
             invulTime = startInvulTime;
 
             if(health <= 0)

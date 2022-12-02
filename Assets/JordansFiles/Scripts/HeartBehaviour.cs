@@ -18,10 +18,12 @@ public class HeartBehaviour : MonoBehaviour
     private float savedHealth = 100;
     private TempoObjSpawner tempoSpawner;
     private float tempoError;
+    private AudioPlayer myAudio;
     // Start is called before the first frame update
     void Start()
     {
         tempoSpawner = FindObjectOfType<TempoObjSpawner>();
+        myAudio = FindObjectOfType<AudioPlayer>();
     }
 
     // Update is called once per frame
@@ -51,6 +53,7 @@ public class HeartBehaviour : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        myAudio.PlayAudioClip("HeartHit");
         healthText.text = "Health: " + health;
 
         if (health <= 0)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -36,6 +37,10 @@ public class EnemySpawner : MonoBehaviour
         if(enemiesLeft == 0)
         {
             currentWave++;
+
+            if (currentWave > arrayOfWaves.Length)
+                SceneManager.LoadScene(3);
+
             enemiesLeft = arrayOfWaves[currentWave].numberOfEnemies;
 
             if (arrayOfWaves[currentWave].openDoor)
@@ -60,7 +65,6 @@ public class EnemySpawner : MonoBehaviour
             int randLocation = Random.Range(0, arrayOfWaves[currentWave].spawnLocations.Length);
 
             int locationToSpawn = arrayOfWaves[currentWave].spawnLocations[randLocation];
-            Debug.Log("Spawning at location " + locationToSpawn);
 
             //Instantiate the enemy
             Instantiate(enemyPrefab, spawnLocations[locationToSpawn], Quaternion.Euler(0,0,0));

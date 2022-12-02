@@ -70,6 +70,8 @@ public class PlayerMovement : MonoBehaviour
     private HeartBehaviour theHeart;
     public CameraCorrect camCorrect;
     public TextMeshProUGUI playerHealthText;
+    public AudioPlayer myAudio;
+    public GameObject weapon;
 
     public enum MovementState
     {
@@ -100,6 +102,8 @@ public class PlayerMovement : MonoBehaviour
         myDeathCanvas.SetActive(false);
 
         playerHealthText.text = "Player Health: " + health;
+
+        myAudio = FindObjectOfType<AudioPlayer>();
     }
 
     // Update is called once per frame
@@ -135,6 +139,7 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.tag == "EnemyBullet" && invulTimer <= 0)
         {
             health--;
+            myAudio.PlayAudioClip("PlayerHit");
             invulTimer = startInvulTimer;
             playerHealthText.text = "Player Health: " + health;
 
@@ -147,11 +152,13 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.position = new Vector3(1000f, 1000f, 1000f);
         myDeathCanvas.SetActive(true);
+        weapon.SetActive(false);
         dead = true;
         invulTimer = 5.0f;
         yield return new WaitForSeconds(3.0f);
         dead = false;
         myDeathCanvas.SetActive(false);
+        weapon.SetActive(true);
         health = startHealth;
         playerHealthText.text = "Player Health: " + health;
         transform.position = respawnPos;
@@ -211,6 +218,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (readyToJump && grounded && doStuffChecker.doStuff == true)
             {
+                myAudio.PlayAudioClip("Jump");
                 readyToJump = false;
 
                 Jump();
