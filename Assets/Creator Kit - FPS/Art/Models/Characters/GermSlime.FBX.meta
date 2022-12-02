@@ -1,84 +1,236 @@
 fileFormatVersion: 2
 guid: a148bf2bf5d309646bda1b56264c815e
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: GermSlime_BodyInner
-    100004: GermSlime_BodyOutter
-    100006: GermSlime_Eye
-    100008: GermSlime_Eye 1
-    100010: GermBlob
-    100012: Head
-    100014: HeadEND
-    100016: Hips
-    100018: LeftAntenna1
-    100020: LeftAntenna2
-    100022: LeftEye
-    100024: LeftEyeLidDown
-    100026: LeftEyelidUp
-    100028: LeftHand
-    100030: LeftHandEND
-    100032: Mouth
-    100034: RightAntenna1
-    100036: RightAntenna2
-    100038: RightEye
-    100040: RightEyeLidDown
-    100042: RightEyeLidUp
-    100044: RightHand
-    100046: RightHandEND
-    100048: Root
-    100050: Spine
-    100052: Tail
-    100054: TailEND
-    400000: //RootNode
-    400002: GermSlime_BodyInner
-    400004: GermSlime_BodyOutter
-    400006: GermSlime_Eye
-    400008: GermSlime_Eye 1
-    400010: GermBlob
-    400012: Head
-    400014: HeadEND
-    400016: Hips
-    400018: LeftAntenna1
-    400020: LeftAntenna2
-    400022: LeftEye
-    400024: LeftEyeLidDown
-    400026: LeftEyelidUp
-    400028: LeftHand
-    400030: LeftHandEND
-    400032: Mouth
-    400034: RightAntenna1
-    400036: RightAntenna2
-    400038: RightEye
-    400040: RightEyeLidDown
-    400042: RightEyeLidUp
-    400044: RightHand
-    400046: RightHandEND
-    400048: Root
-    400050: Spine
-    400052: Tail
-    400054: TailEND
-    2100000: opt
-    2100002: 07 - Default
-    2100004: Germ
-    2300000: GermSlime_BodyInner
-    2300002: GermSlime_BodyOutter
-    2300004: GermSlime_Eye
-    2300006: GermSlime_Eye 1
-    2300008: GermBlob
-    3300000: GermSlime_BodyInner
-    3300002: GermSlime_BodyOutter
-    3300004: GermSlime_Eye
-    3300006: GermSlime_Eye 1
-    3300008: GermBlob
-    4300000: GermSlime_BodyOutter
-    4300002: GermSlime_BodyInner
-    4300004: GermSlime_Eye
-    4300006: GermSlime_Eye
-    4300008: GermBlob
-    9500000: //RootNode
-    13700000: GermBlob
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: GermSlime_BodyInner
+  - first:
+      1: 100004
+    second: GermSlime_BodyOutter
+  - first:
+      1: 100006
+    second: GermSlime_Eye
+  - first:
+      1: 100008
+    second: GermSlime_Eye 1
+  - first:
+      1: 100010
+    second: GermBlob
+  - first:
+      1: 100012
+    second: Head
+  - first:
+      1: 100014
+    second: HeadEND
+  - first:
+      1: 100016
+    second: Hips
+  - first:
+      1: 100018
+    second: LeftAntenna1
+  - first:
+      1: 100020
+    second: LeftAntenna2
+  - first:
+      1: 100022
+    second: LeftEye
+  - first:
+      1: 100024
+    second: LeftEyeLidDown
+  - first:
+      1: 100026
+    second: LeftEyelidUp
+  - first:
+      1: 100028
+    second: LeftHand
+  - first:
+      1: 100030
+    second: LeftHandEND
+  - first:
+      1: 100032
+    second: Mouth
+  - first:
+      1: 100034
+    second: RightAntenna1
+  - first:
+      1: 100036
+    second: RightAntenna2
+  - first:
+      1: 100038
+    second: RightEye
+  - first:
+      1: 100040
+    second: RightEyeLidDown
+  - first:
+      1: 100042
+    second: RightEyeLidUp
+  - first:
+      1: 100044
+    second: RightHand
+  - first:
+      1: 100046
+    second: RightHandEND
+  - first:
+      1: 100048
+    second: Root
+  - first:
+      1: 100050
+    second: Spine
+  - first:
+      1: 100052
+    second: Tail
+  - first:
+      1: 100054
+    second: TailEND
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: GermSlime_BodyInner
+  - first:
+      4: 400004
+    second: GermSlime_BodyOutter
+  - first:
+      4: 400006
+    second: GermSlime_Eye
+  - first:
+      4: 400008
+    second: GermSlime_Eye 1
+  - first:
+      4: 400010
+    second: GermBlob
+  - first:
+      4: 400012
+    second: Head
+  - first:
+      4: 400014
+    second: HeadEND
+  - first:
+      4: 400016
+    second: Hips
+  - first:
+      4: 400018
+    second: LeftAntenna1
+  - first:
+      4: 400020
+    second: LeftAntenna2
+  - first:
+      4: 400022
+    second: LeftEye
+  - first:
+      4: 400024
+    second: LeftEyeLidDown
+  - first:
+      4: 400026
+    second: LeftEyelidUp
+  - first:
+      4: 400028
+    second: LeftHand
+  - first:
+      4: 400030
+    second: LeftHandEND
+  - first:
+      4: 400032
+    second: Mouth
+  - first:
+      4: 400034
+    second: RightAntenna1
+  - first:
+      4: 400036
+    second: RightAntenna2
+  - first:
+      4: 400038
+    second: RightEye
+  - first:
+      4: 400040
+    second: RightEyeLidDown
+  - first:
+      4: 400042
+    second: RightEyeLidUp
+  - first:
+      4: 400044
+    second: RightHand
+  - first:
+      4: 400046
+    second: RightHandEND
+  - first:
+      4: 400048
+    second: Root
+  - first:
+      4: 400050
+    second: Spine
+  - first:
+      4: 400052
+    second: Tail
+  - first:
+      4: 400054
+    second: TailEND
+  - first:
+      21: 2100000
+    second: opt
+  - first:
+      21: 2100002
+    second: 07 - Default
+  - first:
+      21: 2100004
+    second: Germ
+  - first:
+      23: 2300000
+    second: GermSlime_BodyInner
+  - first:
+      23: 2300002
+    second: GermSlime_BodyOutter
+  - first:
+      23: 2300004
+    second: GermSlime_Eye
+  - first:
+      23: 2300006
+    second: GermSlime_Eye 1
+  - first:
+      23: 2300008
+    second: GermBlob
+  - first:
+      33: 3300000
+    second: GermSlime_BodyInner
+  - first:
+      33: 3300002
+    second: GermSlime_BodyOutter
+  - first:
+      33: 3300004
+    second: GermSlime_Eye
+  - first:
+      33: 3300006
+    second: GermSlime_Eye 1
+  - first:
+      33: 3300008
+    second: GermBlob
+  - first:
+      43: 4300000
+    second: GermSlime_BodyOutter
+  - first:
+      43: 4300002
+    second: GermSlime_BodyInner
+  - first:
+      43: 4300004
+    second: GermSlime_Eye
+  - first:
+      43: 4300006
+    second: GermSlime_Eye
+  - first:
+      43: 4300008
+    second: GermBlob
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: GermBlob
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -86,7 +238,7 @@ ModelImporter:
       name: Germ
     second: {fileID: 2100000, guid: 0a5bb9ddaf3c24145b0de29bf259ca21, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 2
     materialName: 1
     materialSearch: 1
     materialLocation: 1
@@ -95,6 +247,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -119,25 +272,34 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -146,10 +308,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -159,13 +321,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: Root
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
