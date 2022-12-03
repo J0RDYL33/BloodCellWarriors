@@ -27,4 +27,9 @@ public class ButtonController : MonoBehaviour
     { 
         SceneManager.LoadScene(0);
     }
+
+    public void NextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
