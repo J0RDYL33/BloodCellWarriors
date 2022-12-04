@@ -1,71 +1,197 @@
 fileFormatVersion: 2
 guid: 6fd3b5c2df6073f4ea432cc9086b6f00
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: GermSpike_Body
-    100004: GermSpike_Eye
-    100006: GermSpike_Eye 1
-    100008: Body
-    100010: BodySpike1
-    100012: BodySpike2
-    100014: BodySpike3
-    100016: BodySpike4
-    100018: GermSpike
-    100020: LeftArm
-    100022: LeftArmEND
-    100024: LeftEye
-    100026: LeftLowerLid
-    100028: LeftUpperLid
-    100030: Mouth
-    100032: RightArm
-    100034: RightArmEND
-    100036: RightEye
-    100038: RightLowerLid
-    100040: RightUpperLid
-    100042: Root
-    400000: //RootNode
-    400002: GermSpike_Body
-    400004: GermSpike_Eye
-    400006: GermSpike_Eye 1
-    400008: Body
-    400010: BodySpike1
-    400012: BodySpike2
-    400014: BodySpike3
-    400016: BodySpike4
-    400018: GermSpike
-    400020: LeftArm
-    400022: LeftArmEND
-    400024: LeftEye
-    400026: LeftLowerLid
-    400028: LeftUpperLid
-    400030: Mouth
-    400032: RightArm
-    400034: RightArmEND
-    400036: RightEye
-    400038: RightLowerLid
-    400040: RightUpperLid
-    400042: Root
-    2100000: 07 - Default
-    2100002: GermSpike_unrigged_SpikeGerm
-    2300000: GermSpike_Body
-    2300002: GermSpike_Eye
-    2300004: GermSpike_Eye 1
-    2300006: //RootNode
-    2300008: GermSpike
-    3300000: GermSpike_Body
-    3300002: GermSpike_Eye
-    3300004: GermSpike_Eye 1
-    3300006: //RootNode
-    3300008: GermSpike
-    4300000: GermSpike_Body
-    4300002: GermSpike_Eye
-    4300004: GermSpike_Eye
-    4300006: GermSpike
-    7400000: Take 001
-    9500000: //RootNode
-    13700000: GermSpike
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: GermSpike_Body
+  - first:
+      1: 100004
+    second: GermSpike_Eye
+  - first:
+      1: 100006
+    second: GermSpike_Eye 1
+  - first:
+      1: 100008
+    second: Body
+  - first:
+      1: 100010
+    second: BodySpike1
+  - first:
+      1: 100012
+    second: BodySpike2
+  - first:
+      1: 100014
+    second: BodySpike3
+  - first:
+      1: 100016
+    second: BodySpike4
+  - first:
+      1: 100018
+    second: GermSpike
+  - first:
+      1: 100020
+    second: LeftArm
+  - first:
+      1: 100022
+    second: LeftArmEND
+  - first:
+      1: 100024
+    second: LeftEye
+  - first:
+      1: 100026
+    second: LeftLowerLid
+  - first:
+      1: 100028
+    second: LeftUpperLid
+  - first:
+      1: 100030
+    second: Mouth
+  - first:
+      1: 100032
+    second: RightArm
+  - first:
+      1: 100034
+    second: RightArmEND
+  - first:
+      1: 100036
+    second: RightEye
+  - first:
+      1: 100038
+    second: RightLowerLid
+  - first:
+      1: 100040
+    second: RightUpperLid
+  - first:
+      1: 100042
+    second: Root
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: GermSpike_Body
+  - first:
+      4: 400004
+    second: GermSpike_Eye
+  - first:
+      4: 400006
+    second: GermSpike_Eye 1
+  - first:
+      4: 400008
+    second: Body
+  - first:
+      4: 400010
+    second: BodySpike1
+  - first:
+      4: 400012
+    second: BodySpike2
+  - first:
+      4: 400014
+    second: BodySpike3
+  - first:
+      4: 400016
+    second: BodySpike4
+  - first:
+      4: 400018
+    second: GermSpike
+  - first:
+      4: 400020
+    second: LeftArm
+  - first:
+      4: 400022
+    second: LeftArmEND
+  - first:
+      4: 400024
+    second: LeftEye
+  - first:
+      4: 400026
+    second: LeftLowerLid
+  - first:
+      4: 400028
+    second: LeftUpperLid
+  - first:
+      4: 400030
+    second: Mouth
+  - first:
+      4: 400032
+    second: RightArm
+  - first:
+      4: 400034
+    second: RightArmEND
+  - first:
+      4: 400036
+    second: RightEye
+  - first:
+      4: 400038
+    second: RightLowerLid
+  - first:
+      4: 400040
+    second: RightUpperLid
+  - first:
+      4: 400042
+    second: Root
+  - first:
+      21: 2100000
+    second: 07 - Default
+  - first:
+      21: 2100002
+    second: GermSpike_unrigged_SpikeGerm
+  - first:
+      23: 2300000
+    second: GermSpike_Body
+  - first:
+      23: 2300002
+    second: GermSpike_Eye
+  - first:
+      23: 2300004
+    second: GermSpike_Eye 1
+  - first:
+      23: 2300006
+    second: //RootNode
+  - first:
+      23: 2300008
+    second: GermSpike
+  - first:
+      33: 3300000
+    second: GermSpike_Body
+  - first:
+      33: 3300002
+    second: GermSpike_Eye
+  - first:
+      33: 3300004
+    second: GermSpike_Eye 1
+  - first:
+      33: 3300006
+    second: //RootNode
+  - first:
+      33: 3300008
+    second: GermSpike
+  - first:
+      43: 4300000
+    second: GermSpike_Body
+  - first:
+      43: 4300002
+    second: GermSpike_Eye
+  - first:
+      43: 4300004
+    second: GermSpike_Eye
+  - first:
+      43: 4300006
+    second: GermSpike
+  - first:
+      74: 7400000
+    second: Take 001
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: GermSpike
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -73,7 +199,7 @@ ModelImporter:
       name: GermSpike_unrigged_SpikeGerm
     second: {fileID: 2100000, guid: 82c7116cf05a3a549a299deb4a65986e, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -82,6 +208,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -106,25 +233,34 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -133,10 +269,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -146,13 +282,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: Root
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
