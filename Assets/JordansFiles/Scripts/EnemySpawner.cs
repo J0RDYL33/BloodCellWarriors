@@ -39,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
             currentWave++;
 
             if (currentWave > arrayOfWaves.Length)
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene(6);
 
             enemiesLeft = arrayOfWaves[currentWave].numberOfEnemies;
 

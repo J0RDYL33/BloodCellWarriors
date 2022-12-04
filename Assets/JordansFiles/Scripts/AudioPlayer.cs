@@ -5,11 +5,12 @@ using UnityEngine;
 public class AudioPlayer : MonoBehaviour
 {
     public AudioClip enemyHit1, enemyHit2, enemyHit3, jump, playerHit, playerShoot, heartHit;
-    private AudioSource mySource;
+    public AudioSource mySource;
+    public AudioSource bulletSource;
     // Start is called before the first frame update
     void Start()
     {
-        mySource=GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -38,7 +39,7 @@ public class AudioPlayer : MonoBehaviour
                 mySource.PlayOneShot(playerHit);
                 break;
             case ("PlayerShoot"):
-                mySource.PlayOneShot(playerShoot);
+                bulletSource.PlayOneShot(playerShoot);
                 break;
             case ("HeartHit"):
                 mySource.PlayOneShot(heartHit);

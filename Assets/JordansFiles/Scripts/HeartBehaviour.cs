@@ -57,7 +57,7 @@ public class HeartBehaviour : MonoBehaviour
         healthText.text = "Health: " + health;
 
         if (health <= 0)
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(5);
     }
 
     private void UpdatePitch()
