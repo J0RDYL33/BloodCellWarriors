@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,8 @@ public class EnemySpawner : MonoBehaviour
     public WaveInfo[] arrayOfWaves;
     public GameObject enemyPrefab;
     public int enemiesLeft;
+    public TextMeshProUGUI enemyText;
+    public GameObject waveText;
 
     private Vector3[] spawnLocations = new Vector3[4];
     private int currentWave;
@@ -34,6 +37,8 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        enemyText.text = "Enemies Left: " + enemiesLeft;
+
         if(enemiesLeft == 0)
         {
             currentWave++;
@@ -52,8 +57,10 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator WaveCooldown()
     {
+        waveText.SetActive(true);
         yield return new WaitForSeconds(5.0f);
         StartCoroutine(SpawnEnemies());
+        waveText.SetActive(false);
     }
 
     IEnumerator SpawnEnemies()

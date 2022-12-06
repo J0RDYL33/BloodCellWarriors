@@ -32,4 +32,9 @@ public class ButtonController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void LoadTraining()
+    {
+        SceneManager.LoadScene(7);
+    }
 }
